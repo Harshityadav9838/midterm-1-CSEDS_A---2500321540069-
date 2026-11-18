@@ -25,12 +25,11 @@ let books = [
     }
 ];
 
-// GET - Display all books
+
 app.get('/books', (req, res) => {
     res.json(books);
 });
 
-// GET - Display book by ID
 app.get('/books/:id', (req, res) => {
     const book = books.find(b => b.id == req.params.id);
 
@@ -41,7 +40,7 @@ app.get('/books/:id', (req, res) => {
     res.json(book);
 });
 
-// POST - Add book
+
 app.post('/books', (req, res) => {
     const newBook = {
         id: books.length + 1,
@@ -55,7 +54,7 @@ app.post('/books', (req, res) => {
     res.status(201).json(newBook);
 });
 
-// PUT - Update book
+
 app.put('/books/:id', (req, res) => {
     const book = books.find(b => b.id == req.params.id);
 
@@ -70,7 +69,7 @@ app.put('/books/:id', (req, res) => {
     res.json(book);
 });
 
-// DELETE - Delete book
+
 app.delete('/books/:id', (req, res) => {
     books = books.filter(b => b.id != req.params.id);
 
